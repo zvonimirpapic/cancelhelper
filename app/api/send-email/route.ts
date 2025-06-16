@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
     // Send actual email using Resend
     const resend = new Resend(process.env.RESEND_API_KEY)
     const result = await resend.emails.send({
-      from: 'CancelHelper <noreply@your-domain.com>',
+      from: 'CancelHelper <onboarding@resend.dev>',
       to: [to],
       subject: subject,
       text: text

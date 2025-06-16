@@ -89,7 +89,7 @@ export async function POST() {
           // Send actual email
           const resend = new Resend(process.env.RESEND_API_KEY)
           const emailResult = await resend.emails.send({
-            from: 'CancelHelper <noreply@your-domain.com>',
+            from: 'CancelHelper <onboarding@resend.dev>',
             to: [reminder.email],
             subject: emailTemplate.subject,
             html: emailTemplate.html,
