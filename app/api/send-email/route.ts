@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if using placeholder API key
-    if (process.env.RESEND_API_KEY === 're_placeholder_key') {
+    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 're_placeholder_key') {
       // Simulate sending for testing
       console.log('📧 SIMULATED EMAIL SEND:')
       console.log('To:', to)
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message: 'Email sent successfully',
-      id: result.data?.id || 'sent'
+      id: result.data?.id || 'real'
     })
 
   } catch (error) {

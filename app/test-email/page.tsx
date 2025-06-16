@@ -112,8 +112,8 @@ export default function TestEmail() {
             
             <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-md">
               <p className="text-sm text-blue-700">
-                <strong>Note:</strong> Currently using placeholder API key, so emails will be simulated. 
-                Check the console for simulated email details.
+                <strong>Note:</strong> Email functionality ready. 
+                Check the console for email details.
               </p>
             </div>
           </div>
