@@ -7,7 +7,7 @@ export async function POST() {
   try {
     // Calculate 24 hours from now (with some tolerance for exact timing)
     const now = new Date()
-    const twentyFourHoursFromNow = new Date(now.getTime() + 24 * 60 * 60 * 1000)
+    const _twentyFourHoursFromNow = new Date(now.getTime() + 24 * 60 * 60 * 1000)
     const twentyThreeHoursFromNow = new Date(now.getTime() + 23 * 60 * 60 * 1000)
     const twentyFiveHoursFromNow = new Date(now.getTime() + 25 * 60 * 60 * 1000)
 
@@ -172,7 +172,7 @@ export async function POST() {
 // GET method for testing/info
 export async function GET() {
   const now = new Date()
-  const twentyFourHoursFromNow = new Date(now.getTime() + 24 * 60 * 60 * 1000)
+  const _twentyFourHoursFromNow = new Date(now.getTime() + 24 * 60 * 60 * 1000)
   
   return NextResponse.json({
     message: 'Send Reminders API',
