@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [userPlan, setUserPlan] = useState('free') // 'free' or 'pro'
   const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
-  const [reminders, setReminders] = useState([])
+  const [, setReminders] = useState([])
   const [user, setUser] = useState<{ email: string; id: string } | null>(null)
   const [showDowngradeModal, setShowDowngradeModal] = useState(false)
 
@@ -77,7 +77,6 @@ export default function Dashboard() {
       })
       
       if (response.ok) {
-        const data = await response.json()
         setUserPlan('pro')
         setMessage('🎉 Welcome to Pro! You now have unlimited reminders!')
         console.log('✅ DASHBOARD: Successfully upgraded to Pro')
@@ -171,9 +170,7 @@ export default function Dashboard() {
     }
   }
 
-  const handleDowngrade = () => {
-    setShowDowngradeModal(true)
-  }
+
 
   const confirmDowngrade = async () => {
     setShowDowngradeModal(false)
@@ -236,7 +233,7 @@ export default function Dashboard() {
               .catch(error => {
                 console.log('Auto-reminder check (background):', error.message)
               })
-          } catch (error) {
+          } catch {
             // Silent - don't interfere with main dashboard loading
           }
 
@@ -369,7 +366,7 @@ export default function Dashboard() {
                       </h4>
                       <p className="text-xs sm:text-sm text-gray-600 mt-1">
                         {userPlan === 'free' 
-                          ? `${Math.max(0, 1 - reminderCount)} reminder${reminderCount >= 1 ? 's' : ''} remaining`
+                          ? (<>{Math.max(0, 1 - reminderCount)} reminder{reminderCount >= 1 && 's'} remaining</>)
                           : 'Unlimited reminders'
                         }
                       </p>
@@ -442,7 +439,7 @@ export default function Dashboard() {
                   Switch to Free Plan
                 </h3>
                 <p className="text-sm xs:text-base text-gray-600 leading-relaxed mb-4 xs:mb-6">
-                  Are you sure you want to switch to the Free plan? You'll keep Pro features until your billing period ends, then have 1 reminder per month.
+                  Are you sure you want to switch to the Free plan? You&apos;ll keep Pro features until your billing period ends, then have 1 reminder per month.
                 </p>
               </div>
               

@@ -101,7 +101,7 @@ You set this reminder to help you manage your trial subscriptions.
   }
 }
 
-export function getThankYouTemplate(email: string) {
+export function getThankYouTemplate() {
   return {
     subject: `🎉 Welcome to CancelHelper Pro! You're all set`,
     html: `
@@ -212,7 +212,7 @@ Your subscription will auto-renew monthly. You can cancel anytime from your dash
   }
 }
 
-export function getReminderConfirmationTemplate({ serviceName, trialEndDate, customerEmail }: { serviceName: string, trialEndDate: string, customerEmail: string }) {
+export function getReminderConfirmationTemplate({ serviceName, trialEndDate }: { serviceName: string, trialEndDate: string }) {
   const trialDate = new Date(trialEndDate)
   const now = new Date()
   const hoursUntilTrial = Math.round((trialDate.getTime() - now.getTime()) / (1000 * 60 * 60))
@@ -389,7 +389,7 @@ Email: cancelhelper@gmail.com
   }
 }
 
-export function getCancellationTemplate(email: string) {
+export function getCancellationTemplate() {
   return {
     subject: `✅ Subscription cancelled - Thanks for using CancelHelper Pro`,
     html: `
