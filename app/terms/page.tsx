@@ -99,7 +99,7 @@ export default function Terms() {
                 
                 <div className="group">
                   <h3 className="text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1.5 xs:mb-2 sm:mb-2.5">Free plan:</h3>
-                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">You can create up to 3 trial reminders for free. Pro plan ($1.99/month) gives you unlimited reminders.</p>
+                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">You can create 1 trial reminder for free. Pro plan ($4.99/month) gives you unlimited reminders.</p>
                 </div>
                 
                 <div className="group">

@@ -45,17 +45,22 @@ export default function Settings() {
         },
         body: JSON.stringify({
           email: user.email,
-          action: 'downgrade'
+          plan: 'free'
         }),
       })
 
       if (response.ok) {
         setUserPlan('free')
         setShowDowngradeModal(false)
-        // Optional: Show success message or redirect
+        console.log('✅ Successfully downgraded to Free plan')
+      } else {
+        const errorData = await response.json()
+        console.error('❌ Failed to downgrade:', errorData)
+        alert('Failed to cancel subscription. Please try again or contact support.')
       }
     } catch (error) {
-      console.error('Error downgrading plan:', error)
+      console.error('❌ Error downgrading plan:', error)
+      alert('Network error. Please check your connection and try again.')
     }
   }
 

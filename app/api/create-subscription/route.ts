@@ -49,8 +49,8 @@ export async function POST(request: Request) {
           quantity: 1,
         },
       ],
-      success_url: `http://localhost:3000/dashboard?upgrade=success`,
-      cancel_url: `http://localhost:3000/pricing?canceled=true`,
+      success_url: `https://cancelhelper.vercel.app/dashboard?upgrade=success`,
+      cancel_url: `https://cancelhelper.vercel.app/pricing?canceled=true`,
       metadata: {
         userId: userId,
       },
