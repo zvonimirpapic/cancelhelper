@@ -147,7 +147,7 @@ export async function POST(request: Request) {
       try {
         console.log('📧 THANK YOU EMAIL: Sending to', email)
         
-        const emailTemplate = getThankYouTemplate(email)
+        const emailTemplate = getThankYouTemplate()
         
         const emailResult = await resend.emails.send({
           from: 'reminders@cancelhelper.app',
@@ -169,7 +169,7 @@ export async function POST(request: Request) {
       try {
         console.log('📧 CANCELLATION EMAIL: Sending to', email)
         
-        const emailTemplate = getCancellationTemplate(email)
+        const emailTemplate = getCancellationTemplate()
         
         const emailResult = await resend.emails.send({
           from: 'reminders@cancelhelper.app',
