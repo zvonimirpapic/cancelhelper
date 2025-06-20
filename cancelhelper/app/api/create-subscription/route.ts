@@ -1,9 +1,15 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-05-28.basil',
-})
+// Initialize Stripe only when needed to avoid build-time errors
+const getStripeClient = () => {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not configured')
+  }
+  return new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2025-05-28.basil',
+  })
+}
 
 export async function POST(request: Request) {
   console.log('✅ Stripe subscription API called')
@@ -22,6 +28,7 @@ export async function POST(request: Request) {
     console.log('✅ Creating Stripe checkout session')
     
     // Create Stripe checkout session
+    const stripe = getStripeClient()
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       mode: 'subscription',
@@ -42,8 +49,8 @@ export async function POST(request: Request) {
           quantity: 1,
         },
       ],
-      success_url: `http://localhost:3000/dashboard?upgrade=success`,
-      cancel_url: `http://localhost:3000/pricing?canceled=true`,
+      success_url: `https://cancelhelper.vercel.app/dashboard?upgrade=success`,
+      cancel_url: `https://cancelhelper.vercel.app/pricing?canceled=true`,
       metadata: {
         userId: userId,
       },

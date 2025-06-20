@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
@@ -227,7 +226,7 @@ export default function Login() {
             {/* Signup Link */}
             <div className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 text-center">
               <p className="text-xs xs:text-sm sm:text-base text-gray-600 leading-relaxed">
-                Don't have an account?{' '}
+                Don&apos;t have an account?{' '}
                 <Link 
                   href="/signup" 
                   className="text-blue-600 font-medium cursor-pointer transition-all duration-300 ease-in-out inline-block touch-manipulation min-h-[44px] xs:min-h-[48px] py-2 px-1 rounded hover:bg-blue-50 active:bg-blue-100 active:scale-[0.98]"

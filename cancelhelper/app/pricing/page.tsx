@@ -156,7 +156,7 @@ export default function Pricing() {
         </div>
 
         <div className="text-center mt-6 xs:mt-8 sm:mt-10 md:mt-12">
-          <p className="text-base xs:text-lg sm:text-xl text-gray-600 px-2 xs:px-4 sm:px-0 mb-3 xs:mb-4">No more "oops, I forgot to cancel." We've got your back</p>
+          <p className="text-base xs:text-lg sm:text-xl text-gray-600 px-2 xs:px-4 sm:px-0 mb-3 xs:mb-4">No more &quot;oops, I forgot to cancel.&quot; We&apos;ve got your back</p>
           <Link 
             href="/" 
             className="text-blue-600 hover:text-blue-500 mt-2 xs:mt-3 sm:mt-4 inline-block transition-colors text-xs xs:text-sm sm:text-base cursor-pointer touch-manipulation min-h-[44px] xs:min-h-[48px] flex items-center justify-center px-4 py-2 rounded-lg hover:bg-blue-50 active:bg-blue-100 active:scale-[0.98]"

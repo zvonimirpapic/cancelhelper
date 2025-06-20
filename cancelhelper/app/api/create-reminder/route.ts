@@ -97,8 +97,7 @@ export async function POST(request: Request) {
       
       const emailTemplate = getReminderConfirmationTemplate({
         serviceName,
-        trialEndDate: trialDate.toISOString(),
-        customerEmail: email
+        trialEndDate: trialDate.toISOString()
       })
       
       const emailResult = await resend.emails.send({
