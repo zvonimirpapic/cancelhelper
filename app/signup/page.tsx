@@ -31,8 +31,33 @@ export default function Signup() {
       return
     }
 
-    if (password.length < 6) {
-      setMessage('❌ Password must be at least 6 characters long')
+    if (password.length < 8) {
+      setMessage('❌ Password must be at least 8 characters long')
+      setIsLoading(false)
+      return
+    }
+
+    // Comprehensive password validation - enforce ALL displayed rules
+    if (!/[a-z]/.test(password)) {
+      setMessage('❌ Password must contain at least one lowercase letter')
+      setIsLoading(false)
+      return
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      setMessage('❌ Password must contain at least one uppercase letter')
+      setIsLoading(false)
+      return
+    }
+
+    if (!/[0-9]/.test(password)) {
+      setMessage('❌ Password must contain at least one number')
+      setIsLoading(false)
+      return
+    }
+
+    if (!/[@$!%*?&]/.test(password)) {
+      setMessage('❌ Password must contain at least one special character (@$!%*?&)')
       setIsLoading(false)
       return
     }
@@ -205,23 +230,23 @@ export default function Signup() {
               <div className="bg-gray-50 rounded-lg xs:rounded-xl p-3 xs:p-4 sm:p-5 touch-manipulation">
                 <p className="text-xs xs:text-sm sm:text-base font-medium text-gray-900 mb-2 xs:mb-3">Password must contain:</p>
                 <ul className="space-y-1.5 xs:space-y-2">
-                  <li className={`flex items-center text-xs xs:text-sm transition-all duration-300 touch-manipulation min-h-[32px] ${password.length >= 8 ? 'text-green-600' : 'text-gray-500'}`}>
+                  <li className={`flex items-center text-xs xs:text-sm sm:text-base transition-all duration-300 touch-manipulation min-h-[32px] ${password.length >= 8 ? 'text-green-600' : 'text-gray-500'}`}>
                     <span className="mr-2 xs:mr-3 text-sm xs:text-base flex-shrink-0">{password.length >= 8 ? '✅' : '○'}</span>
                     At least 8 characters
                   </li>
-                  <li className={`flex items-center text-xs xs:text-sm transition-all duration-300 touch-manipulation min-h-[32px] ${/[a-z]/.test(password) ? 'text-green-600' : 'text-gray-500'}`}>
+                  <li className={`flex items-center text-xs xs:text-sm sm:text-base transition-all duration-300 touch-manipulation min-h-[32px] ${/[a-z]/.test(password) ? 'text-green-600' : 'text-gray-500'}`}>
                     <span className="mr-2 xs:mr-3 text-sm xs:text-base flex-shrink-0">{/[a-z]/.test(password) ? '✅' : '○'}</span>
                     One lowercase letter
                   </li>
-                  <li className={`flex items-center text-xs xs:text-sm transition-all duration-300 touch-manipulation min-h-[32px] ${/[A-Z]/.test(password) ? 'text-green-600' : 'text-gray-500'}`}>
+                  <li className={`flex items-center text-xs xs:text-sm sm:text-base transition-all duration-300 touch-manipulation min-h-[32px] ${/[A-Z]/.test(password) ? 'text-green-600' : 'text-gray-500'}`}>
                     <span className="mr-2 xs:mr-3 text-sm xs:text-base flex-shrink-0">{/[A-Z]/.test(password) ? '✅' : '○'}</span>
                     One uppercase letter
                   </li>
-                  <li className={`flex items-center text-xs xs:text-sm transition-all duration-300 touch-manipulation min-h-[32px] ${/[0-9]/.test(password) ? 'text-green-600' : 'text-gray-500'}`}>
+                  <li className={`flex items-center text-xs xs:text-sm sm:text-base transition-all duration-300 touch-manipulation min-h-[32px] ${/[0-9]/.test(password) ? 'text-green-600' : 'text-gray-500'}`}>
                     <span className="mr-2 xs:mr-3 text-sm xs:text-base flex-shrink-0">{/[0-9]/.test(password) ? '✅' : '○'}</span>
                     One number
                   </li>
-                  <li className={`flex items-center text-xs xs:text-sm transition-all duration-300 touch-manipulation min-h-[32px] ${/[@$!%*?&]/.test(password) ? 'text-green-600' : 'text-gray-500'}`}>
+                  <li className={`flex items-center text-xs xs:text-sm sm:text-base transition-all duration-300 touch-manipulation min-h-[32px] ${/[@$!%*?&]/.test(password) ? 'text-green-600' : 'text-gray-500'}`}>
                     <span className="mr-2 xs:mr-3 text-sm xs:text-base flex-shrink-0">{/[@$!%*?&]/.test(password) ? '✅' : '○'}</span>
                     One special character (@$!%*?&)
                   </li>

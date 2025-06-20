@@ -25,6 +25,39 @@ export async function POST(request: Request) {
       })
     }
 
+    // Comprehensive password validation - enforce ALL security rules
+    if (!/[a-z]/.test(password)) {
+      console.log('❌ Password missing lowercase letter')
+      return new Response(JSON.stringify({ error: 'Password must contain at least one lowercase letter' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      })
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      console.log('❌ Password missing uppercase letter')
+      return new Response(JSON.stringify({ error: 'Password must contain at least one uppercase letter' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      })
+    }
+
+    if (!/[0-9]/.test(password)) {
+      console.log('❌ Password missing number')
+      return new Response(JSON.stringify({ error: 'Password must contain at least one number' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      })
+    }
+
+    if (!/[@$!%*?&]/.test(password)) {
+      console.log('❌ Password missing special character')
+      return new Response(JSON.stringify({ error: 'Password must contain at least one special character (@$!%*?&)' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      })
+    }
+
     console.log('✅ Validation passed')
 
     // Hash password
@@ -50,7 +83,10 @@ export async function POST(request: Request) {
     }
 
     console.log('✅ User created successfully in database!')
-    return new Response(JSON.stringify({ message: 'User created successfully!' }), {
+    return new Response(JSON.stringify({ 
+      message: 'User created successfully!', 
+      userId: data[0].id 
+    }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     })

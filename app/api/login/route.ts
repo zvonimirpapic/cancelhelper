@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase'
+import bcrypt from 'bcrypt'
 
 export async function POST(request: Request) {
   console.log('✅ Login API called')
@@ -34,7 +35,23 @@ export async function POST(request: Request) {
       })
     }
 
-    return new Response(JSON.stringify({ message: 'User found! Login will work soon.', user: { email: users.email, id: users.id } }), {
+    // CRITICAL SECURITY FIX: Verify password hash
+    console.log('🔐 Verifying password hash')
+    const isPasswordValid = await bcrypt.compare(password, users.password_hash)
+    
+    if (!isPasswordValid) {
+      console.log('❌ Invalid password')
+      return new Response(JSON.stringify({ error: 'Invalid email or password' }), {
+        status: 401,
+        headers: { 'Content-Type': 'application/json' }
+      })
+    }
+
+    console.log('✅ Password verified successfully')
+    return new Response(JSON.stringify({ 
+      message: 'Login successful', 
+      user: { email: users.email, id: users.id } 
+    }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     })
