@@ -87,10 +87,6 @@ export default function Terms() {
                 Terms of Service
               </h2>
               <div className="space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6">
-                <div className="group">
-                  <h3 className="text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1.5 xs:mb-2 sm:mb-2.5">What we do:</h3>
-                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">CancelHelper sends you email reminders before your free trials end so you don&apos;t get charged unexpectedly.</p>
-                </div>
                 
                 <div className="group">
                   <h3 className="text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1.5 xs:mb-2 sm:mb-2.5">Your account:</h3>
