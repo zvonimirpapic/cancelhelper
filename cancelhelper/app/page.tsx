@@ -87,8 +87,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 mb-10 sm:mb-12 lg:mb-16 leading-relaxed max-w-3xl mx-auto px-2">
-              Don&apos;t get charged for something you forgot<br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>We&apos;ll remind you 24 hours before any subscription renews
+              We&apos;ll remind you before any subscription renews
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
               <Link href="/signup" className="w-full sm:w-auto group inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-gray-900 text-white rounded-2xl text-lg sm:text-xl font-semibold hover:bg-gray-800 active:bg-gray-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 active:translate-y-0 min-h-[56px] touch-manipulation">
@@ -122,7 +121,7 @@ export default function Home() {
                 <span className="text-4xl sm:text-5xl">💰</span>
                 </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Save Money</h3>
-              <p className="text-gray-600 leading-relaxed text-lg sm:text-xl">Never get charged for something you forgot to cancel 💸</p>
+              <p className="text-gray-600 leading-relaxed text-lg sm:text-xl">Never get charged for something you forgot to cancel</p>
               </div>
               
             <div className="group text-center p-8 sm:p-10 rounded-3xl hover:bg-gray-50 active:bg-gray-100 transition-all duration-300 touch-manipulation">

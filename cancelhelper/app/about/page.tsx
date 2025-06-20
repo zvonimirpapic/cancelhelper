@@ -120,10 +120,16 @@ export default function About() {
                   Why We Built This
                 </h3>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                  We&apos;ve all been there - signing up for a &quot;free&quot; trial and completely forgetting about it until we see the unexpected charge on our credit card statement. It&apos;s frustrating, and frankly, it shouldn&apos;t happen.
+                  Very simple:<br />
+                  You shouldn&apos;t pay for something you forgot.
+                </p>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6">
+                  So we built Cancel Helper to help you save money.
                 </p>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                  That&apos;s why we created Cancel Helper. We believe technology should work for you, not against you. Our simple reminder system puts the power back in your hands.
+                  Just a quick reminder.<br />
+                  Before anything renews.<br />
+                  You stay in control — not your credit card
                 </p>
               </div>
               
