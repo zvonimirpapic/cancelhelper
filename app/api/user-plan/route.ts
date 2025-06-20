@@ -165,7 +165,7 @@ export async function POST(request: Request) {
         
         const resend = getResendClient()
         const emailResult = await resend.emails.send({
-          from: 'reminders@cancelhelper.app',
+          from: 'CancelHelper <reminders@cancelhelper.app>',
           to: email,
           subject: emailTemplate.subject,
           html: emailTemplate.html,
@@ -188,7 +188,7 @@ export async function POST(request: Request) {
         
         const resend = getResendClient()
         const emailResult = await resend.emails.send({
-          from: 'reminders@cancelhelper.app',
+          from: 'CancelHelper <reminders@cancelhelper.app>',
           to: email,
           subject: emailTemplate.subject,
           html: emailTemplate.html,
