@@ -89,12 +89,12 @@ export default function Terms() {
               <div className="space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6">
                 <div className="group">
                   <h3 className="text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1.5 xs:mb-2 sm:mb-2.5">What we do:</h3>
-                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">CancelHelper sends you email reminders before your free trials end so you don't get charged unexpectedly.</p>
+                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">CancelHelper sends you email reminders before your free trials end so you don&apos;t get charged unexpectedly.</p>
                 </div>
                 
                 <div className="group">
                   <h3 className="text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1.5 xs:mb-2 sm:mb-2.5">Your account:</h3>
-                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">You're responsible for keeping your login information secure. We'll never share your data with third parties.</p>
+                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">You&apos;re responsible for keeping your login information secure. We&apos;ll never share your data with third parties.</p>
                 </div>
                 
                 <div className="group">
@@ -104,7 +104,7 @@ export default function Terms() {
                 
                 <div className="group">
                   <h3 className="text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1.5 xs:mb-2 sm:mb-2.5">Email reminders:</h3>
-                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">We send reminders 24 hours before your trial ends. We can't guarantee email delivery due to spam filters, so check your inbox regularly.</p>
+                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">We send reminders 24 hours before your trial ends. We can&apos;t guarantee email delivery due to spam filters, so check your inbox regularly.</p>
                 </div>
                 
                 <div className="group">
@@ -114,7 +114,7 @@ export default function Terms() {
                 
                 <div className="group">
                   <h3 className="text-sm xs:text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-1.5 xs:mb-2 sm:mb-2.5">Changes:</h3>
-                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">We may update these terms occasionally. We'll notify you of any major changes.</p>
+                  <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">We may update these terms occasionally. We&apos;ll notify you of any major changes.</p>
                 </div>
               </div>
             </div>

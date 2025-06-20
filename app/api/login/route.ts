@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt'
 import { supabase } from '@/lib/supabase'
 
 export async function POST(request: Request) {

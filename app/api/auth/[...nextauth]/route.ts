@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { supabase } from '@/lib/supabase'
 
 const handler = NextAuth({
   providers: [

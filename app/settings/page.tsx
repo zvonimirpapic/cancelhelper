@@ -167,7 +167,7 @@ export default function Settings() {
                       <div className="flex-1">
                         <h4 className="text-base xs:text-lg font-semibold text-orange-900 mb-2">Cancel Subscription</h4>
                         <p className="text-xs xs:text-sm sm:text-base text-orange-800 mb-4 leading-relaxed">
-                          Switch back to our Free plan anytime. You'll keep access to Pro features until your current billing period ends, then enjoy 1 reminder per month on the house.
+                          Switch back to our Free plan anytime. You&apos;ll keep access to Pro features until your current billing period ends, then enjoy 1 reminder per month on the house.
                         </p>
                         <button
                           onClick={handleDowngrade}
@@ -228,7 +228,7 @@ export default function Settings() {
                   Switch to Free Plan
                 </h3>
                 <p className="text-sm xs:text-base text-gray-600 leading-relaxed mb-4 xs:mb-6">
-                  Are you sure you want to switch to the Free plan? You'll keep Pro features until your billing period ends, then have 1 reminder per month.
+                  Are you sure you want to switch to the Free plan? You&apos;ll keep Pro features until your billing period ends, then have 1 reminder per month.
                 </p>
               </div>
               

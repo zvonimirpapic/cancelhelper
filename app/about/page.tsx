@@ -85,7 +85,7 @@ export default function About() {
               About Cancel Helper
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16 lg:mb-20 px-2">
-              We're on a mission to help people stop wasting money on forgotten subscriptions and free trials. 
+              We&apos;re on a mission to help people stop wasting money on forgotten subscriptions and free trials. 
               Simple, reliable, and built to keep things stress-free.
             </p>
             
@@ -120,10 +120,10 @@ export default function About() {
                   Why We Built This
                 </h3>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed mb-4 sm:mb-6">
-                  We've all been there - signing up for a "free" trial and completely forgetting about it until we see the unexpected charge on our credit card statement. It's frustrating, and frankly, it shouldn't happen.
+                  We&apos;ve all been there - signing up for a &quot;free&quot; trial and completely forgetting about it until we see the unexpected charge on our credit card statement. It&apos;s frustrating, and frankly, it shouldn&apos;t happen.
                 </p>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                  That's why we created Cancel Helper. We believe technology should work for you, not against you. Our simple reminder system puts the power back in your hands.
+                  That&apos;s why we created Cancel Helper. We believe technology should work for you, not against you. Our simple reminder system puts the power back in your hands.
                 </p>
               </div>
               
@@ -176,10 +176,10 @@ export default function About() {
                 <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">💌</span>
               </div>
               <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8 tracking-tight leading-[1.1] px-2">
-                Let's Talk
+                Let&apos;s Talk
               </h2>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16 px-2">
-                Got a question, suggestion, or just want to say hi? We're real humans who care about you and your money.
+                Got a question, suggestion, or just want to say hi? We&apos;re real humans who care about you and your money.
               </p>
             </div>
             
