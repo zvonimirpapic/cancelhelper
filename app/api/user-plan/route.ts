@@ -4,10 +4,23 @@ import { Resend } from 'resend'
 import Stripe from 'stripe'
 import { getThankYouTemplate, getCancellationTemplate } from '@/lib/email-templates'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-05-28.basil',
-})
+// Initialize Resend only when needed to avoid build-time errors
+const getResendClient = () => {
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY is not configured')
+  }
+  return new Resend(process.env.RESEND_API_KEY)
+}
+
+// Initialize Stripe only when needed to avoid build-time errors
+const getStripeClient = () => {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not configured')
+  }
+  return new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2025-05-28.basil',
+  })
+}
 
 // GET: Fetch user's current plan
 export async function GET(request: Request) {
@@ -99,6 +112,7 @@ export async function POST(request: Request) {
           console.log('🗑️ CANCELLING STRIPE: Cancelling subscription', userData.stripe_subscription_id)
           
           // Cancel the Stripe subscription immediately
+          const stripe = getStripeClient()
           await stripe.subscriptions.cancel(userData.stripe_subscription_id)
           
           console.log('✅ CANCELLING STRIPE: Successfully cancelled subscription')
@@ -149,6 +163,7 @@ export async function POST(request: Request) {
         
         const emailTemplate = getThankYouTemplate()
         
+        const resend = getResendClient()
         const emailResult = await resend.emails.send({
           from: 'reminders@cancelhelper.app',
           to: email,
@@ -171,6 +186,7 @@ export async function POST(request: Request) {
         
         const emailTemplate = getCancellationTemplate()
         
+        const resend = getResendClient()
         const emailResult = await resend.emails.send({
           from: 'reminders@cancelhelper.app',
           to: email,

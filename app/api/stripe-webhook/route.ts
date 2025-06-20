@@ -2,11 +2,22 @@ import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { supabase } from '@/lib/supabase'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-05-28.basil',
-})
+// Initialize Stripe only when needed to avoid build-time errors
+const getStripeClient = () => {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not configured')
+  }
+  return new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2025-05-28.basil',
+  })
+}
 
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
+const getWebhookSecret = () => {
+  if (!process.env.STRIPE_WEBHOOK_SECRET) {
+    throw new Error('STRIPE_WEBHOOK_SECRET is not configured')
+  }
+  return process.env.STRIPE_WEBHOOK_SECRET
+}
 
 export async function POST(request: Request) {
   console.log('🔔 Stripe webhook received')
@@ -18,6 +29,8 @@ export async function POST(request: Request) {
     let event: Stripe.Event
     
     try {
+      const stripe = getStripeClient()
+      const webhookSecret = getWebhookSecret()
       event = stripe.webhooks.constructEvent(body, sig, webhookSecret)
     } catch (err) {
       console.error('❌ Webhook signature verification failed:', err)
