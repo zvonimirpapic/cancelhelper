@@ -42,8 +42,8 @@ export async function POST(request: Request) {
           quantity: 1,
         },
       ],
-      success_url: `http://localhost:3000/?success=true`,
-      cancel_url: `http://localhost:3000/?canceled=true`,
+      success_url: `http://localhost:3000/dashboard?upgrade=success`,
+      cancel_url: `http://localhost:3000/pricing?canceled=true`,
       metadata: {
         userId: userId,
       },

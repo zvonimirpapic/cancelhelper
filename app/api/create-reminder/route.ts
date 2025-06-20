@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
+import { getReminderConfirmationTemplate } from '@/lib/email-templates'
+import { Resend } from 'resend'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
@@ -87,12 +91,36 @@ export async function POST(request: Request) {
     
     console.log('✅ CREATE REMINDER: Successfully created', data?.[0]?.id)
     
+    // Send immediate confirmation email
+    try {
+      console.log('📧 CONFIRMATION EMAIL: Sending to', email)
+      
+      const emailTemplate = getReminderConfirmationTemplate({
+        serviceName,
+        trialEndDate: trialDate.toISOString(),
+        customerEmail: email
+      })
+      
+      const emailResult = await resend.emails.send({
+        from: 'CancelHelper <reminders@cancelhelper.app>',
+        to: email,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
+        text: emailTemplate.text,
+      })
+      
+      console.log('✅ CONFIRMATION EMAIL: Sent successfully', emailResult.data?.id)
+    } catch (emailError) {
+      console.error('❌ CONFIRMATION EMAIL: Failed to send', emailError)
+      // Don't fail the whole request if email fails - reminder is still created
+    }
+    
     // Calculate time until trial ends
     const hoursUntilTrial = Math.round((trialDate.getTime() - now.getTime()) / (1000 * 60 * 60))
     
     return NextResponse.json({
       success: true,
-      message: `Reminder created! We'll email you 24 hours before your ${serviceName} trial ends.`,
+      message: `Reminder created! Check your email for confirmation. We'll remind you 24 hours before your ${serviceName} trial ends.`,
       reminder: {
         id: data?.[0]?.id,
         serviceName,
@@ -168,4 +196,4 @@ export async function GET(request: Request) {
       details: String(error) 
     }, { status: 500 })
   }
-} 
+}
